@@ -13,7 +13,7 @@ namespace Papalandia.Repositories
         Task<Users> deleteUser(int UserId);
     }
 
-    public class UsersRepository
+    public class UsersRepository : IUsersRepository
     {
 
         private readonly PapalandiaDbContext _db;
@@ -23,7 +23,7 @@ namespace Papalandia.Repositories
             _db = db;
         }
 
-        public async Task<Users> createUsers(string UserName, string Email, string Password, int UserRolId)
+        public async Task<Users> createUser(string UserName, string Email, string Password, int UserRolId)
         {
 
             Users newUsers = new Users
@@ -60,9 +60,17 @@ namespace Papalandia.Repositories
 
         public async Task<Users> deleteUser(int UserId)
         {
-            Users users = await getUser(UserId);
-            // student.IsDeleted = true;
-            return await updateUser(users);
+            Users users = await _db.Users.FindAsync(UserId);
+            if (users == null)
+            {
+                return null;
+            }
+            _db.Users.Remove(users);
+            await _db.SaveChangesAsync();
+            return users;
+
+            
+
         }
 
     }

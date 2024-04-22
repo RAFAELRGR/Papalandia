@@ -9,6 +9,6 @@ namespace Papalandia.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserRolId { get; set; }
         public string? UserRolName { get; set; }
-        public ICollection<Users>? Users { get; set; }
+        //public ICollection<Users>? Users { get; set; }
     }
 }

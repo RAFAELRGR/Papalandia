@@ -13,7 +13,7 @@ namespace Papalandia.Repositories
         Task<UserRol> deleteUserRol(int UserRolId);
     }
 
-    public class UserRolRepository
+    public class UserRolRepository : IUserRolRepository
     {
         private readonly PapalandiaDbContext _db;
 
@@ -56,9 +56,17 @@ namespace Papalandia.Repositories
 
         public async Task<UserRol> deleteUserRol(int UserRolId)
         {
-            UserRol userRol = await getUserRol(UserRolId);
-            // student.IsDeleted = true;
-            return await updateUserRol(userRol);
+            UserRol userRol = await _db.UserRols.FindAsync(UserRolId);
+            if (userRol == null)
+            {
+                return null;
+            }
+            _db.UserRols.Remove(userRol);
+            await _db.SaveChangesAsync();
+            return userRol;
+
+         
+
         }
 
     }

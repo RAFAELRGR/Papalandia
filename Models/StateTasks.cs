@@ -9,6 +9,6 @@ namespace Papalandia.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int StateTasksId { get; set; }
         public string? StateTasksName { get; set; }
-        public ICollection<Tasks>? Tasks { get; set; }
+        //public ICollection<Tasks>? Tasks { get; set; }
     }
 }

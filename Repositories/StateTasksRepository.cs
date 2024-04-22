@@ -57,9 +57,15 @@ namespace Papalandia.Repositories
 
         public async Task<StateTasks> deleteStateTask(int stateTasksId)
         {
-            StateTasks stateTasks = await getStateTask(stateTasksId);
-            // student.IsDeleted = true;
-            return await updateStateTask(stateTasks);
+            StateTasks stateTasks = await _db.StateTasks.FindAsync(stateTasksId);
+            if (stateTasks == null)
+            {
+                return null;
+            }
+            _db.StateTasks.Remove(stateTasks);
+            await _db.SaveChangesAsync();
+            return stateTasks;
+
         }
 
     }

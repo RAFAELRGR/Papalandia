@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Papalandia.Models;
 using Papalandia.Services;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+
 
 namespace Papalandia.Controllers
 {

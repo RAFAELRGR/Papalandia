@@ -22,7 +22,7 @@ namespace Papalandia.Models
         public int? StateCropsId { get; set; }
         [ForeignKey("StateCropsId")]
         public StateCrops? StateCrops { get; set; }
-        public ICollection<Tasks>? Tasks { get; set; }
+
 
 
     }

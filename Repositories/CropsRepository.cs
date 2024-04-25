@@ -62,9 +62,16 @@ namespace Papalandia.Repositories
 
         public async Task<Crops> deleteCrop(int CropsId)
         {
-            Crops crop = await getCrop(CropsId);
-            // student.IsDeleted = true;
-            return await updateCrop(crop);
+            Crops Cropsdelete = await _db.Crops.FindAsync(CropsId);
+            if (Cropsdelete == null)
+            {
+                return null;
+            }
+
+            _db.Crops.Remove(Cropsdelete);
+            await _db.SaveChangesAsync();
+            return Cropsdelete;
+
         }
 
     }

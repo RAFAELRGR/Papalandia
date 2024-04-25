@@ -10,6 +10,6 @@ namespace Papalandia.Models
         public int? AchievementsId { get; set;}
         public string? AchievementsName { get; set;}
         public string? AchievementsDescription { get; set;}
-        public ICollection<GamesAchievements>? Unlocks { get; set; }
+        //public ICollection<GamesAchievements>? Unlocks { get; set; }
     }
 }

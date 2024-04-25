@@ -28,6 +28,8 @@ builder.Services.AddScoped<IStateCropsRepository, StateCropsRepository>();
 builder.Services.AddScoped<IStateTasksRepository, StateTasksRepository>();
 builder.Services.AddScoped<IUserRolRepository, UserRolRepository>();
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<ITasksRepository, TasksRepository>();
+builder.Services.AddScoped<ICropsRepository, CropsRepository>();
 
 #endregion
 
@@ -42,6 +44,8 @@ builder.Services.AddScoped<IStateCropsService, StateCropsService>();
 builder.Services.AddScoped<IStateTasksService, StateTasksService>();
 builder.Services.AddScoped<IUserRolService, UserRolService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ITasksService, TasksService>();
+builder.Services.AddScoped<ICropsService, CropsService>();
 
 
 #endregion

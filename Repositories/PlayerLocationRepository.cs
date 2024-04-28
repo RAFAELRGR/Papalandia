@@ -57,13 +57,18 @@ namespace Papalandia.Repositories
             await _db.SaveChangesAsync();
             return playerLocation;
         }
-
         public async Task<PlayerLocation> deletePlayerLocation(int PlayerLocationId)
         {
             PlayerLocation playerLocation = await getPlayerLocation(PlayerLocationId);
-            // student.IsDeleted = true;
-            return await updatePlayerLocation(playerLocation);
+            if (playerLocation == null)
+            {
+                return null;
+            }
+            _db.PlayerLocation.Remove(playerLocation);
+            await _db.SaveChangesAsync();
+            return playerLocation;
         }
+
 
     }
 }

@@ -39,6 +39,10 @@ namespace Papalandia.Controllers
         [HttpPost]
         public async Task<ActionResult<Crops>> createCrop(int PlotsId, int PotatoesId, int PestId, string SowingDate, int StateCropsId)
         {
+            if (PlotsId <= 0 || PotatoesId <= 0 || PestId <= 0 || string.IsNullOrEmpty(SowingDate) || StateCropsId <= 0)
+            {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
             try
             {
                 DateOnly parsedSowingDate = DateOnly.Parse(SowingDate);
@@ -58,6 +62,10 @@ namespace Papalandia.Controllers
         [HttpPut("{CropsId}")]
         public async Task<IActionResult> updateCrop(int CropsId, int? PlotsId = null, int? PotatoesId = null, int? PestId = null, string SowingDate = null, int? StateCropsId = null)
         {
+            if (PlotsId <= 0 || PotatoesId <= 0 || PestId <= 0 || string.IsNullOrEmpty(SowingDate) || StateCropsId <= 0)
+            {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
             try
             {
                 DateOnly? parsedSowingDate = null;

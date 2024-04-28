@@ -37,6 +37,10 @@ namespace Papalandia.Controllers
         [HttpPost]
         public async Task<ActionResult<UserRol>> createUserRol(string userRolName)
         {
+            if (string.IsNullOrEmpty(userRolName))
+            {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
             try
             {
                 var createdUserRol = await _userRolService.createUserRol(userRolName);
@@ -51,6 +55,10 @@ namespace Papalandia.Controllers
         [HttpPut("{UserRolId}")]
         public async Task<IActionResult> updateUserRol(int UserRolId, string userRolName)
         {
+            if (string.IsNullOrEmpty(userRolName))
+            {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
             var updatedUserRol = await _userRolService.updateUserRol(UserRolId, userRolName);
             if (updatedUserRol == null)
             {

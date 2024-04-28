@@ -60,10 +60,16 @@ namespace Papalandia.Repositories
         public async Task<Achievements> deleteAchievement(int AchievementsId)
         {
             Achievements achievement = await getAchievement(AchievementsId);
-            // student.IsDeleted = true;
-            return await updateAchievement(achievement);
+            if (achievement == null)
+            {
+                return null;
+            }
+            _db.Achievements.Remove(achievement);
+            await _db.SaveChangesAsync();
+            return achievement;
         }
-    
+
+
 
     }
 }

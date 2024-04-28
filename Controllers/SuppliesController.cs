@@ -37,6 +37,10 @@ namespace Papalandia.Controllers
         [HttpPost]
         public async Task<ActionResult<Supplies>> createSupply(string suppliesName, string suppliesDescription, int typeSuppliesId)
         {
+            if (string.IsNullOrEmpty(suppliesName) || string.IsNullOrEmpty(suppliesDescription) || typeSuppliesId <= 0)
+            {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
             if (string.IsNullOrEmpty(suppliesName) || string.IsNullOrEmpty(suppliesDescription))
             {
                 return BadRequest("El nombre y la descripción del suministro son obligatorios.");
@@ -61,6 +65,10 @@ namespace Papalandia.Controllers
         [HttpPut("{SuppliesId}")]
         public async Task<IActionResult> UpdateSupply(int SuppliesId, string suppliesName = null, string suppliesDescription = null, int? typeSuppliesId = null)
         {
+            if (string.IsNullOrEmpty(suppliesName) || string.IsNullOrEmpty(suppliesDescription) || typeSuppliesId <= 0)
+            {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
             var updatedSupply = await _suppliesService.updateSupply(SuppliesId, suppliesName, suppliesDescription, typeSuppliesId);
             if (updatedSupply == null)
             {

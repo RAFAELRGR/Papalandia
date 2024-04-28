@@ -8,59 +8,48 @@ namespace Papalandia.Services
         Task<List<StateGames>> getStateGames();
         Task<StateGames> getStateGame(int StateGameId);
         Task<StateGames> createStateGame(int PlayerLocationId);
-        Task<StateGames> updateStateGame(int StateGameId, int? PlayerLocationId=null);
-        Task<StateGames> deleteStateGame(int AchievementsId);
+        Task<StateGames> updateStateGame(int StateGameId, int? PlayerLocationId = null);
+        Task<StateGames> deleteStateGame(int StateGameId);
     }
 
-    public class StateGamesService
+    public class StateGamesService : IStateGameService
     {
-
-
         private readonly IStateGamesRepository _stateGamesRepository;
-
         public StateGamesService(IStateGamesRepository stateGamesRepository)
         {
-
             _stateGamesRepository = stateGamesRepository;
-
         }
-
-        public async Task<StateGames> createStateGames(int PlayerLocationId)
+        public async Task<StateGames> createStateGame(int PlayerLocationId)
         {
-            return await _stateGamesRepository.createStateGame (PlayerLocationId);
+            return await _stateGamesRepository.createStateGame(PlayerLocationId);
         }
-
-        public async Task<StateGames> GetStateGames(int StateGameId)
+        public async Task<StateGames> getStateGame(int StateGameId)
         {
-            return await _stateGamesRepository.createStateGame(StateGameId);
+            return await _stateGamesRepository.getStateGame(StateGameId);
         }
-
         public async Task<List<StateGames>> getStateGames()
         {
             return await _stateGamesRepository.getStateGames();
         }
-
-        public async Task<StateGames> updateStateGames(int StateGameId, int? PlayerLocationId = null)
+        public async Task<StateGames> updateStateGame(int StateGameId, int? PlayerLocationId = null)
         {
-            StateGames stateGames = await _stateGamesRepository.getStateGame(StateGameId);
+            StateGames stateGame = await _stateGamesRepository.getStateGame(StateGameId);
 
-            if (stateGames == null)
+            if (stateGame == null)
             {
                 return null;
             }
-            else
-                if (PlayerLocationId != null)
+
+            if (PlayerLocationId != null)
             {
-                stateGames.PlayerLocationId = PlayerLocationId;
+                stateGame.PlayerLocationId = PlayerLocationId.Value;
             }
 
-            return await _stateGamesRepository.updateStateGame(stateGames);
+            return await _stateGamesRepository.updateStateGame(stateGame);
         }
-
         public async Task<StateGames> deleteStateGame(int StateGameId)
         {
             return await _stateGamesRepository.deleteStateGame(StateGameId);
         }
-
     }
 }

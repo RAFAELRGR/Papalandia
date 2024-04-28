@@ -37,6 +37,10 @@ namespace Papalandia.Controllers
         [HttpPost]
         public async Task<ActionResult<Plots>> createPlot(decimal PlotsSize, decimal Longitude, decimal Latitude)
         {
+            if (PlotsSize <= 0 || Longitude <= 0 || Latitude <= 0)
+            {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
             try
             {
                 var createdPlot = await _plotsService.createPlot(PlotsSize, Longitude, Latitude);
@@ -51,6 +55,10 @@ namespace Papalandia.Controllers
         [HttpPut("{PlotsId}")]
         public async Task<IActionResult> updatePlot(int PlotsId, decimal? PlotsSize = null, decimal? Longitude = null, decimal? Latitude = null)
         {
+            if (PlotsSize <= 0 || Longitude <= 0 || Latitude <= 0)
+            {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
             var updatedPlot = await _plotsService.updatePlot(PlotsId, PlotsSize, Longitude, Latitude);
             if (updatedPlot == null)
             {

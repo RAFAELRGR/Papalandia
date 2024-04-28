@@ -1,5 +1,124 @@
 [
   {
+    "ContainingType": "Papalandia.Controllers.AchievementsController",
+    "Method": "getAchievements",
+    "RelativePath": "api/Achievements",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Papalandia.Models.Achievements, Papalandia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.AchievementsController",
+    "Method": "createAchievement",
+    "RelativePath": "api/Achievements",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "AchievementsName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "AchievementsDescription",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Papalandia.Models.Achievements",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.AchievementsController",
+    "Method": "getAchievement",
+    "RelativePath": "api/Achievements/{AchievementsId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "AchievementsId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Papalandia.Models.Achievements",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.AchievementsController",
+    "Method": "updateAchievement",
+    "RelativePath": "api/Achievements/{AchievementsId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "AchievementsId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "AchievementsName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "AchievementsDescription",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.AchievementsController",
+    "Method": "deleteAchievement",
+    "RelativePath": "api/Achievements/{AchievementsId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "AchievementsId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Papalandia.Controllers.CropsController",
     "Method": "GetCrops",
     "RelativePath": "api/Crops",
@@ -149,6 +268,284 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Papalandia.Controllers.GamesController",
+    "Method": "getGames",
+    "RelativePath": "api/Games",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Papalandia.Models.Games, Papalandia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.GamesController",
+    "Method": "CreateGame",
+    "RelativePath": "api/Games",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "startGame",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "endGame",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "stateGameId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Papalandia.Models.Games",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.GamesController",
+    "Method": "getGame",
+    "RelativePath": "api/Games/{GameId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "GameId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Papalandia.Models.Games",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.GamesController",
+    "Method": "updateGame",
+    "RelativePath": "api/Games/{GameId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "GameId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "startGame",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "endGame",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "stateGameId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.GamesController",
+    "Method": "deleteGame",
+    "RelativePath": "api/Games/{GameId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "GameId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.GamesAchievementsController",
+    "Method": "GetGamesAchievements",
+    "RelativePath": "api/GamesAchievements",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Papalandia.Models.GamesAchievements, Papalandia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.GamesAchievementsController",
+    "Method": "CreateGamesAchievement",
+    "RelativePath": "api/GamesAchievements",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "AchievementUnlocked",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "AchievementId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "GameId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Papalandia.Models.GamesAchievements",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.GamesAchievementsController",
+    "Method": "GetGamesAchievement",
+    "RelativePath": "api/GamesAchievements/{AchievementUnlockedId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "AchievementUnlockedId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Papalandia.Models.GamesAchievements",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.GamesAchievementsController",
+    "Method": "updateGamesAchievement",
+    "RelativePath": "api/GamesAchievements/{AchievementUnlockedId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "AchievementUnlockedId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "AchievementUnlocked",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "AchievementId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "GameId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Papalandia.Models.GamesAchievements",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.GamesAchievementsController",
+    "Method": "DeleteGamesAchievement",
+    "RelativePath": "api/GamesAchievements/{AchievementUnlockedId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "AchievementUnlockedId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Papalandia.Controllers.PestsController",
     "Method": "getPests",
     "RelativePath": "api/Pests",
@@ -271,6 +668,135 @@
     "Parameters": [
       {
         "Name": "PestsId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.PlayerLocationController",
+    "Method": "getPlayerLocations",
+    "RelativePath": "api/PlayerLocation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Papalandia.Models.PlayerLocation, Papalandia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.PlayerLocationController",
+    "Method": "createPlayerLocation",
+    "RelativePath": "api/PlayerLocation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CoordinateX",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CoordinateY",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CoordinateZ",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Papalandia.Models.PlayerLocation",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.PlayerLocationController",
+    "Method": "getPlayerLocation",
+    "RelativePath": "api/PlayerLocation/{PlayerLocationId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PlayerLocationId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Papalandia.Models.PlayerLocation",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.PlayerLocationController",
+    "Method": "updatePlayerLocation",
+    "RelativePath": "api/PlayerLocation/{PlayerLocationId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PlayerLocationId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "CoordinateX",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CoordinateY",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CoordinateZ",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.PlayerLocationController",
+    "Method": "deletePlayerLocation",
+    "RelativePath": "api/PlayerLocation/{PlayerLocationId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PlayerLocationId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -648,6 +1174,115 @@
     "Parameters": [
       {
         "Name": "StateCropsId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.StateGamesController",
+    "Method": "getStateGames",
+    "RelativePath": "api/StateGames",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Papalandia.Models.StateGames, Papalandia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.StateGamesController",
+    "Method": "createStateGame",
+    "RelativePath": "api/StateGames",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PlayerLocationId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Papalandia.Models.StateGames",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.StateGamesController",
+    "Method": "getStateGame",
+    "RelativePath": "api/StateGames/{StateGameId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StateGameId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Papalandia.Models.StateGames",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.StateGamesController",
+    "Method": "updateStateGame",
+    "RelativePath": "api/StateGames/{StateGameId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StateGameId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PlayerLocationId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Papalandia.Controllers.StateGamesController",
+    "Method": "deleteStateGame",
+    "RelativePath": "api/StateGames/{StateGameId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StateGameId",
         "Type": "System.Int32",
         "IsRequired": true
       }

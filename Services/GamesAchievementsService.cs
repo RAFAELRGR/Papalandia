@@ -47,8 +47,7 @@ namespace Papalandia.Services
             {
                 return null;
             }
-            else
-                if (AchievementUnlocked != null)
+            if (AchievementUnlocked != null)
             {
                 gamesAchievements.AchievementUnlocked = AchievementUnlocked;
             }

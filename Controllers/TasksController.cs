@@ -40,6 +40,10 @@ namespace Papalandia.Controllers
         [HttpPost]
         public async Task<ActionResult<Tasks>> createTask(int CropsId, string Description, string DateTask, int StateTasksId, int UserId)
         {
+            if (CropsId <= 0 || string.IsNullOrEmpty(Description) || string.IsNullOrEmpty(Description) || string.IsNullOrEmpty(DateTask)|| StateTasksId <= 0 || UserId <= 0)
+            {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
             try
             {
                 DateOnly parsedDateTask = DateOnly.Parse(DateTask);
@@ -60,6 +64,10 @@ namespace Papalandia.Controllers
         [HttpPut("{TasksId}")]
         public async Task<ActionResult<Tasks>> updateTask(int TasksId, int? CropsId = null, string Description = null, string DateTask = null, int? StateTasksId = null, int? UserId = null)
         {
+            if (CropsId <= 0 || string.IsNullOrEmpty(Description) || string.IsNullOrEmpty(Description) || string.IsNullOrEmpty(DateTask) || StateTasksId <= 0 || UserId <= 0)
+            {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
             DateOnly? parsedDate = null;
 
             if (DateTask != null)
@@ -70,11 +78,6 @@ namespace Papalandia.Controllers
                 }
                 parsedDate = tempParsedDate;
             }
-            else
-            {
-                parsedDate = DateOnly.MinValue;
-            }
-
             var updatedTask = await _tasksService.updateTask(TasksId, CropsId, Description, parsedDate, StateTasksId, UserId);
             if (updatedTask == null)
             {
@@ -82,6 +85,7 @@ namespace Papalandia.Controllers
             }
             return Ok(updatedTask);
         }
+
 
         [HttpDelete("{TasksId}")]
         public async Task<IActionResult> deleteTask(int TasksId)

@@ -39,6 +39,10 @@ namespace Papalandia.Controllers
         {
             if (string.IsNullOrEmpty(nameTypeSupplies))
             {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
+            if (string.IsNullOrEmpty(nameTypeSupplies))
+            {
                 return BadRequest("El nombre del tipo de suministro es obligatorio.");
             }
 
@@ -61,7 +65,10 @@ namespace Papalandia.Controllers
         [HttpPut("{TypeSuppliesId}")]
         public async Task<IActionResult> updateTypeSupplie(int TypeSuppliesId, string NameTypeSupplies = null)
         {
-
+            if (string.IsNullOrEmpty(NameTypeSupplies))
+            {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
             var updatedTypeSupplie = await _typeSuppliesService.updateTypeSupplie(TypeSuppliesId, NameTypeSupplies);
             if (updatedTypeSupplie == null)
             {

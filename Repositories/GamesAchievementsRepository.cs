@@ -31,12 +31,11 @@ namespace Papalandia.Repositories
             {
                 AchievementUnlocked = AchievementUnlocked,
                 AchievementId = AchievementId,
-                GameId = GameId,
+                GameId = GameId
             };
 
             _db.GamesAchievements.Add(newGamesAchievements);
             await _db.SaveChangesAsync();
-
             return newGamesAchievements;
 
         }
@@ -60,10 +59,18 @@ namespace Papalandia.Repositories
 
         public async Task<GamesAchievements> deleteGamesAchievement(int AchievementUnlockedId)
         {
-            GamesAchievements gamesAchievements = await getGamesAchievement(AchievementUnlockedId);
-            // student.IsDeleted = true;
-            return await updateGamesAchievement(gamesAchievements);
+            GamesAchievements GamesAchievements = await _db.GamesAchievements.FindAsync(AchievementUnlockedId);
+            if (GamesAchievements == null)
+            {
+                return null;
+            }
+
+            _db.GamesAchievements.Remove(GamesAchievements);
+            await _db.SaveChangesAsync();
+            return GamesAchievements;
+
         }
+
 
     }
 }

@@ -37,6 +37,10 @@ namespace Papalandia.Controllers
         [HttpPost]
         public async Task<ActionResult<StateCrops>> CreateStateCrop(string stateCrop)
         {
+            if (string.IsNullOrEmpty(stateCrop))
+            {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
             try
             {
                 var createdStateCrop = await _stateCropsService.createStateCrop(stateCrop);
@@ -51,6 +55,10 @@ namespace Papalandia.Controllers
         [HttpPut("{StateCropsId}")]
         public async Task<IActionResult> updateStateCrop(int StateCropsId, string stateCrop)
         {
+            if (string.IsNullOrEmpty(stateCrop))
+            {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
             var updatedStateCrop = await _stateCropsService.updateStateCrop(StateCropsId, stateCrop);
             if (updatedStateCrop == null)
             {

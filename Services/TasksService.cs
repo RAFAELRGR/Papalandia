@@ -44,40 +44,38 @@ namespace Papalandia.Services
         }
 
         public async Task<Tasks> updateTask(int TasksId, int? CropsId = null, string? Description = null, DateOnly? DateTask = null, int? StateTasksId = null, int? UserId = null)
-        {
-            Tasks task = await _TasksRepository.getTask(TasksId);
-            if (task == null)
-            {
-                return null;
-            }
-            else
-                if (CropsId != null)
-            {
-                task.CropsId = CropsId;
-            }
-            else
-                if (Description != null)
-            {
-                task.Description = Description;
-            }
-            else
-                if (DateTask != null)
-            {
-                task.DateTask = DateTask;
-            }
-            else
-                if (StateTasksId != null)
-            {
-                task.StateTasksId = StateTasksId;
-            }
-            else
-                if (UserId != null)
-            {
-                task.UserId = UserId;
-            }
+{
+    Tasks task = await _TasksRepository.getTask(TasksId);
+    if (task == null)
+    {
+        return null;
+    }
+    
+    if (CropsId != null)
+    {
+        task.CropsId = CropsId;
+    }
+    if (Description != null)
+    {
+        task.Description = Description;
+    }
+    if (DateTask != null)
+    {
+        task.DateTask = DateTask;
+    }
+    if (StateTasksId != null)
+    {
+        task.StateTasksId = StateTasksId;
+    }
+    if (UserId != null)
+    {
+        task.UserId = UserId;
+    }
 
-            return await _TasksRepository.updateTask(task);
-        }
+
+    return await _TasksRepository.updateTask(task);
+}
+
     }
    
 }

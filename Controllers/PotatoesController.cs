@@ -37,12 +37,10 @@ namespace Papalandia.Controllers
         [HttpPost]
         public async Task<ActionResult<Potatoes>> createPotato(string PotatoesName, string Description, decimal TimeGrowth, int TypePotatoesId)
         {
-            // Validar la entrada
             if (string.IsNullOrEmpty(PotatoesName) || string.IsNullOrEmpty(Description) || TimeGrowth <= 0 || TypePotatoesId <= 0)
             {
                 return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
             }
-
             try
             {
                 var createdPotato = await _potatoesService.createPotato(PotatoesName, Description, TimeGrowth, TypePotatoesId);
@@ -63,6 +61,10 @@ namespace Papalandia.Controllers
         [HttpPut("{PotatoesId}")]
         public async Task<IActionResult> updatePotato(int PotatoesId, string PotatoesName = null, string Description = null, decimal TimeGrowth = 0, int? TypePotatoesId = null)
         {
+            if (string.IsNullOrEmpty(PotatoesName) || string.IsNullOrEmpty(Description) || TimeGrowth <= 0 || TypePotatoesId <= 0)
+            {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
             var updatedPotato = await _potatoesService.updatePotato(PotatoesId, PotatoesName, Description, TimeGrowth, TypePotatoesId);
             if (updatedPotato == null)
             {
@@ -72,8 +74,6 @@ namespace Papalandia.Controllers
             return NoContent();
         }
 
-
-
         [HttpDelete("{PotatoesId}")]
         public async Task<IActionResult> Delete(int PotatoesId)
         {
@@ -82,7 +82,6 @@ namespace Papalandia.Controllers
             {
                 return NotFound();
             }
-
             return NoContent();
         }
     }

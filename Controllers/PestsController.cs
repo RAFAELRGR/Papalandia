@@ -41,7 +41,6 @@ namespace Papalandia.Controllers
             {
                 return BadRequest("El nombre de la plaga es obligatorio.");
             }
-
             try
             {
                 var createdPest = await _pestsService.createPest(PestsName, PestsDescription, SuppliesId);
@@ -61,6 +60,10 @@ namespace Papalandia.Controllers
         [HttpPut("{PestsId}")]
         public async Task<IActionResult> updatePest(int PestsId, string PestsName = null, string PestsDescription = null, int? SuppliesId = null)
         {
+            if (string.IsNullOrEmpty(PestsName))
+            {
+                return BadRequest("El nombre de la plaga es obligatorio.");
+            }
             var updatedPest = await _pestsService.updatePest(PestsId, PestsName, PestsDescription, SuppliesId);
             if (updatedPest == null)
             {

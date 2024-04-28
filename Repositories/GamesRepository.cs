@@ -62,10 +62,16 @@ namespace Papalandia.Repositories
 
         public async Task<Games> deleteGame(int GameId)
         {
-            Games games = await getGame(GameId);
-            // student.IsDeleted = true;
-            return await updateGame(games);
+            var gameToDelete = await getGame(GameId);
+            if (gameToDelete == null)
+            {
+                return null;
+            }
+            _db.Games.Remove(gameToDelete);
+            await _db.SaveChangesAsync();
+            return gameToDelete;
         }
+
 
     }
 }

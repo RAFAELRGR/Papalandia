@@ -30,6 +30,11 @@ builder.Services.AddScoped<IUserRolRepository, UserRolRepository>();
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<ITasksRepository, TasksRepository>();
 builder.Services.AddScoped<ICropsRepository, CropsRepository>();
+builder.Services.AddScoped<IAchievementsRepository, AchievementsRepository>();
+builder.Services.AddScoped<IPlayerLocationRepository, PlayerLocationRepository>();
+builder.Services.AddScoped<IStateGamesRepository, StateGameRepository>();
+builder.Services.AddScoped<IGamesRepository, GamesRepository>();    
+builder.Services.AddScoped<IGamesAchievementsRepository,  GamesAchievementsRepository>();
 
 #endregion
 
@@ -46,7 +51,11 @@ builder.Services.AddScoped<IUserRolService, UserRolService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITasksService, TasksService>();
 builder.Services.AddScoped<ICropsService, CropsService>();
-
+builder.Services.AddScoped<IAchievementsService, AchievementsService>();
+builder.Services.AddScoped<IPlayerLocationService, PlayerLocationService>();
+builder.Services.AddScoped<IStateGameService, StateGamesService>();
+builder.Services.AddScoped<IGamesService, GamesService>();
+builder.Services.AddScoped<IGamesAchievementsService, GamesAchievementsService>();  
 
 #endregion
 

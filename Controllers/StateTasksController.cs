@@ -37,6 +37,10 @@ namespace Papalandia.Controllers
         [HttpPost]
         public async Task<ActionResult<StateTasks>> CreateStateTask(string stateTaskName)
         {
+            if (string.IsNullOrEmpty(stateTaskName))
+            {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
             try
             {
                 var createdStateTask = await _stateTasksService.createStateTask(stateTaskName);
@@ -51,6 +55,10 @@ namespace Papalandia.Controllers
         [HttpPut("{StateTasksId}")]
         public async Task<IActionResult> UpdateStateTask(int StateTasksId, string stateTaskName)
         {
+            if (string.IsNullOrEmpty(stateTaskName))
+            {
+                return BadRequest("Todos los campos son obligatorios y deben tener valores válidos.");
+            }
             var updatedStateTask = await _stateTasksService.updateStateTask(StateTasksId, stateTaskName);
             if (updatedStateTask == null)
             {

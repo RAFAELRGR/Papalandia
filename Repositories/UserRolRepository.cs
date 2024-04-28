@@ -64,9 +64,6 @@ namespace Papalandia.Repositories
             _db.UserRols.Remove(userRol);
             await _db.SaveChangesAsync();
             return userRol;
-
-         
-
         }
 
     }

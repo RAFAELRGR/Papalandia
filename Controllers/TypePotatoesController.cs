@@ -41,7 +41,6 @@ namespace Papalandia.Controllers
             {
                 return BadRequest("El nombre del tipo de papa es obligatorio.");
             }
-
             try
             {
                 var createdTypePotato = await _typePotatoesService.createTypePotato(TypeNamePotatoes);
@@ -65,6 +64,10 @@ namespace Papalandia.Controllers
         [HttpPut("{TypePotatoesId}")]
         public async Task<IActionResult> updateTypePotato(int TypePotatoesId, string TypeNamePotatoes = null )
         {
+            if (string.IsNullOrEmpty(TypeNamePotatoes))
+            {
+                return BadRequest("El nombre del tipo de papa es obligatorio.");
+            }
 
             var updatedTypePotato = await _typePotatoesService.updateTypePotato(TypePotatoesId, TypeNamePotatoes);
             if (updatedTypePotato == null)

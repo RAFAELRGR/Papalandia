@@ -47,7 +47,6 @@ namespace Papalandia.Services
             {
                 return null;
             }
-            else
                 if (PotatoesId != null)
             {
                 potatoes.PotatoesId = PotatoesId;

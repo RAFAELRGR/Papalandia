@@ -18,6 +18,6 @@ namespace Papalandia.Models
 
         [ForeignKey("StateGameId")]
         public StateGames? StateGame { get; set; }
-        public ICollection<GamesAchievements>? Achievements { get; set; }
+       // public ICollection<GamesAchievements>? Achievements { get; set; }
     }
 }

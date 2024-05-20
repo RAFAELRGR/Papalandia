@@ -49,7 +49,6 @@ namespace Papalandia.Services
             {
                 return null;
             }
-            else
                 if (UserRolName != null)
             {
                 usersrol.UserRolName = UserRolName;

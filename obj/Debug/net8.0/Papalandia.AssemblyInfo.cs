@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Papalandia")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+efc2e8715291003d87d106c4b09a51a7c6b872c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("Papalandia")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Papalandia")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

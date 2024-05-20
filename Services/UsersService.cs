@@ -10,6 +10,7 @@ namespace Papalandia.Services
         Task<Users> createUser(string UserName, string Email, string Password, int UserRolId);
         Task<Users> updateUser(int UserId, string? UserName = null, string? Email = null, string? Password = null, int? UserRolId = null);
         Task<Users> deleteUser(int UserId);
+        Task<Users> Login(string Username, string Password);
     }
     public class UserService : IUserService
     {
@@ -48,28 +49,30 @@ namespace Papalandia.Services
             {
                 return null;
             }
-            else
                 if (UserName != null)
             {
                 users.UserName = UserName;
             }
-            else
+
                 if (Email != null)
             {
                 users.Email = Email;
             }
-            else
+
                 if (Password != null)
             {
                 users.Password = Password;
             }
-            else
                 if (UserRolId != null)
             {
                 users.UserRolId = UserRolId;
             }
 
             return await _UserRepository.updateUser(users);
+        }
+        public async Task<Users> Login(string userName, string password)
+        {
+            return await _UserRepository.Login(userName, password);
         }
 
     }

@@ -11,6 +11,7 @@ namespace Papalandia.Repositories
         Task<Users> createUser(string UserName, string Email, string Password, int UserRolId);
         Task<Users> updateUser(Users users);
         Task<Users> deleteUser(int UserId);
+        Task<Users> Login(string userName, string password);
     }
 
     public class UsersRepository : IUsersRepository
@@ -68,9 +69,11 @@ namespace Papalandia.Repositories
             _db.Users.Remove(users);
             await _db.SaveChangesAsync();
             return users;
+        }
 
-            
-
+        public async Task<Users> Login(string userName, string password)
+        {
+            return await _db.Users.FirstOrDefaultAsync(u => u.UserName == userName && u.Password == password);
         }
 
     }

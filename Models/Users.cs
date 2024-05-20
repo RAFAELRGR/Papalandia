@@ -15,6 +15,5 @@ namespace Papalandia.Models
 
         [ForeignKey("UserRolId")]
         public UserRol? UserRol { get; set; }
-        public ICollection<Games>? Games { get; set; }
     }
 }

@@ -48,7 +48,7 @@ namespace Papalandia.Services
             {
                 return null;
             }
-            else
+
                 if (PlotsId != null)
             {
                 crops.PlotsId = PlotsId;

@@ -46,7 +46,6 @@ namespace Papalandia.Services
             {
                 return null;
             }
-            else
                 if (StartGame != null)
             {
                 games.StartGame = StartGame;

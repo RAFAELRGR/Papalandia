@@ -12,6 +12,6 @@ namespace Papalandia.Models
 
         [ForeignKey("PlayerLocationId")]
         public PlayerLocation? PlayerLocation { get; set; }
-        public ICollection<Games>? Games { get; set; }
+       // public ICollection<Games>? Games { get; set; }
     }
 }

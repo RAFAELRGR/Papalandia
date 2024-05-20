@@ -46,8 +46,7 @@ namespace Papalandia.Services
             {
                 return null;
             }
-            else
-                if (AchievementsName != null)
+            if (AchievementsName != null)
             {
                 achievements.AchievementsName = AchievementsName;
             }

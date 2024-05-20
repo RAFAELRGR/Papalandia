@@ -49,24 +49,25 @@ namespace Papalandia.Services
             {
                 return null;
             }
-            else
-                if (SuppliesName != null)
+
+            if (SuppliesName != null)
             {
                 supplies.SuppliesName = SuppliesName;
             }
-            else
-                if (SuppliesDescription != null)
+
+            if (SuppliesDescription != null)
             {
                 supplies.SuppliesDescription = SuppliesDescription;
             }
-            else
-                if (TypeSuppliesId != null)
+
+            if (TypeSuppliesId != null)
             {
-                supplies.TypeSuppliesId = TypeSuppliesId;
+                supplies.TypeSuppliesId = TypeSuppliesId.Value;
             }
 
             return await _SuppliesRepository.updateSupply(supplies);
         }
+
     }
 
 }

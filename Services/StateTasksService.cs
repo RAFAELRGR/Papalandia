@@ -49,7 +49,6 @@ namespace Papalandia.Services
             {
                 return null;
             }
-            else
                 if (StateTasksName != null)
             {
                 statetasks.StateTasksName = StateTasksName;

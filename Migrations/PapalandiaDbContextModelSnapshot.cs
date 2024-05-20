@@ -419,7 +419,7 @@ namespace Papalandia.Migrations
                         .HasForeignKey("PestId");
 
                     b.HasOne("Papalandia.Models.Plots", "Plot")
-                        .WithMany("Crops")
+                        .WithMany()
                         .HasForeignKey("PlotsId");
 
                     b.HasOne("Papalandia.Models.Potatoes", "Potatoes")
@@ -427,7 +427,7 @@ namespace Papalandia.Migrations
                         .HasForeignKey("PotatoesId");
 
                     b.HasOne("Papalandia.Models.StateCrops", "StateCrops")
-                        .WithMany("Crops")
+                        .WithMany()
                         .HasForeignKey("StateCropsId");
 
                     b.Navigation("Pest");
@@ -442,11 +442,11 @@ namespace Papalandia.Migrations
             modelBuilder.Entity("Papalandia.Models.Games", b =>
                 {
                     b.HasOne("Papalandia.Models.StateGames", "StateGame")
-                        .WithMany("Games")
+                        .WithMany()
                         .HasForeignKey("StateGameId");
 
                     b.HasOne("Papalandia.Models.Users", "User")
-                        .WithMany("Games")
+                        .WithMany()
                         .HasForeignKey("UserId");
 
                     b.Navigation("StateGame");
@@ -457,11 +457,11 @@ namespace Papalandia.Migrations
             modelBuilder.Entity("Papalandia.Models.GamesAchievements", b =>
                 {
                     b.HasOne("Papalandia.Models.Achievements", "Achievement")
-                        .WithMany("Unlocks")
+                        .WithMany()
                         .HasForeignKey("AchievementId");
 
                     b.HasOne("Papalandia.Models.Games", "Game")
-                        .WithMany("Achievements")
+                        .WithMany()
                         .HasForeignKey("GameId");
 
                     b.Navigation("Achievement");
@@ -499,7 +499,7 @@ namespace Papalandia.Migrations
             modelBuilder.Entity("Papalandia.Models.Supplies", b =>
                 {
                     b.HasOne("Papalandia.Models.TypeSupplies", "TypeSupplies")
-                        .WithMany("Supplies")
+                        .WithMany()
                         .HasForeignKey("TypeSuppliesId");
 
                     b.Navigation("TypeSupplies");
@@ -508,11 +508,11 @@ namespace Papalandia.Migrations
             modelBuilder.Entity("Papalandia.Models.Tasks", b =>
                 {
                     b.HasOne("Papalandia.Models.Crops", "Crops")
-                        .WithMany("Tasks")
+                        .WithMany()
                         .HasForeignKey("CropsId");
 
                     b.HasOne("Papalandia.Models.StateTasks", "StateTasks")
-                        .WithMany("Tasks")
+                        .WithMany()
                         .HasForeignKey("StateTasksId");
 
                     b.HasOne("Papalandia.Models.Users", "User")
@@ -529,66 +529,16 @@ namespace Papalandia.Migrations
             modelBuilder.Entity("Papalandia.Models.Users", b =>
                 {
                     b.HasOne("Papalandia.Models.UserRol", "UserRol")
-                        .WithMany("Users")
+                        .WithMany()
                         .HasForeignKey("UserRolId");
 
                     b.Navigation("UserRol");
-                });
-
-            modelBuilder.Entity("Papalandia.Models.Achievements", b =>
-                {
-                    b.Navigation("Unlocks");
-                });
-
-            modelBuilder.Entity("Papalandia.Models.Crops", b =>
-                {
-                    b.Navigation("Tasks");
-                });
-
-            modelBuilder.Entity("Papalandia.Models.Games", b =>
-                {
-                    b.Navigation("Achievements");
                 });
 
             modelBuilder.Entity("Papalandia.Models.PlayerLocation", b =>
                 {
                     b.Navigation("StateGame")
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Papalandia.Models.Plots", b =>
-                {
-                    b.Navigation("Crops");
-                });
-
-            modelBuilder.Entity("Papalandia.Models.StateCrops", b =>
-                {
-                    b.Navigation("Crops");
-                });
-
-            modelBuilder.Entity("Papalandia.Models.StateGames", b =>
-                {
-                    b.Navigation("Games");
-                });
-
-            modelBuilder.Entity("Papalandia.Models.StateTasks", b =>
-                {
-                    b.Navigation("Tasks");
-                });
-
-            modelBuilder.Entity("Papalandia.Models.TypeSupplies", b =>
-                {
-                    b.Navigation("Supplies");
-                });
-
-            modelBuilder.Entity("Papalandia.Models.UserRol", b =>
-                {
-                    b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("Papalandia.Models.Users", b =>
-                {
-                    b.Navigation("Games");
                 });
 #pragma warning restore 612, 618
         }

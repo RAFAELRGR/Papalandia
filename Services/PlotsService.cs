@@ -47,7 +47,6 @@ namespace Papalandia.Services
             {
                 return null;
             }
-            else
                 if (PlotsSize != null)
             {
                 plots.PlotsSize = PlotsSize;

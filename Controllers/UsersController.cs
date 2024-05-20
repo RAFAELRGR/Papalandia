@@ -34,7 +34,7 @@ namespace Papalandia.Controllers
             return Ok(user);
         }
 
-        [HttpPost]
+        [HttpPost("Create")]
         public async Task<ActionResult<Users>> createUser(string userName, string email, string password, int userRolId)
         {
             if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || userRolId <= 0)
@@ -76,6 +76,25 @@ namespace Papalandia.Controllers
                 return NotFound();
             }
             return NoContent();
+        }
+
+        [HttpPost("Login")]
+        public async Task<ActionResult<bool>> Login(string userName, string password)
+        {
+            if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
+            {
+                return BadRequest("El nombre de usuario y la contraseña son obligatorios.");
+            }
+
+            var user = await _userService.Login(userName, password);
+            if (user != null)
+            {
+                return Ok(true);
+            }
+            else
+            {
+                return Ok(false);
+            }
         }
     }
 }

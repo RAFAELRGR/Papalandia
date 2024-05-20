@@ -51,7 +51,6 @@ namespace Papalandia.Services
             {
                 return null;
             }
-            else
                 if (TypeNamePotatoes != null)
             {
                 typepotatoes.TypeNamePotatoes = TypeNamePotatoes;

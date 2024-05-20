@@ -3,18 +3,29 @@ using Papalandia.Context;
 using Papalandia.Repositories;
 using Papalandia.Services;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 var connectionString = builder.Configuration.GetConnectionString("Connection");
+
 
 builder.Services.AddDbContext<PapalandiaDbContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.WithOrigins("http://localhost:5173") 
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
 
 
 #region Repositories
@@ -33,9 +44,8 @@ builder.Services.AddScoped<ICropsRepository, CropsRepository>();
 builder.Services.AddScoped<IAchievementsRepository, AchievementsRepository>();
 builder.Services.AddScoped<IPlayerLocationRepository, PlayerLocationRepository>();
 builder.Services.AddScoped<IStateGamesRepository, StateGameRepository>();
-builder.Services.AddScoped<IGamesRepository, GamesRepository>();    
-builder.Services.AddScoped<IGamesAchievementsRepository,  GamesAchievementsRepository>();
-
+builder.Services.AddScoped<IGamesRepository, GamesRepository>();
+builder.Services.AddScoped<IGamesAchievementsRepository, GamesAchievementsRepository>();
 #endregion
 
 #region Services
@@ -44,7 +54,7 @@ builder.Services.AddScoped<ITypePotatoesService, TypePotatoesService>();
 builder.Services.AddScoped<ITypeSuppliesService, TypeSuppliesService>();
 builder.Services.AddScoped<ISuppliesService, SuppliesService>();
 builder.Services.AddScoped<IPestsService, PestsService>();
-builder.Services.AddScoped<IPlotsService, PlotsService>();  
+builder.Services.AddScoped<IPlotsService, PlotsService>();
 builder.Services.AddScoped<IStateCropsService, StateCropsService>();
 builder.Services.AddScoped<IStateTasksService, StateTasksService>();
 builder.Services.AddScoped<IUserRolService, UserRolService>();
@@ -55,21 +65,22 @@ builder.Services.AddScoped<IAchievementsService, AchievementsService>();
 builder.Services.AddScoped<IPlayerLocationService, PlayerLocationService>();
 builder.Services.AddScoped<IStateGameService, StateGamesService>();
 builder.Services.AddScoped<IGamesService, GamesService>();
-builder.Services.AddScoped<IGamesAchievementsService, GamesAchievementsService>();  
-
+builder.Services.AddScoped<IGamesAchievementsService, GamesAchievementsService>();
 #endregion
-
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseDeveloperExceptionPage();
 }
 
+app.UseSwagger();
+app.UseSwaggerUI();
+
 app.UseHttpsRedirection();
+
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 

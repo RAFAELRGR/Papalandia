@@ -57,7 +57,7 @@ namespace Papalandia.Services
             }
             if (GameId != null)
             {
-                gamesAchievements.AchievementId = GameId;
+                gamesAchievements.GameId = GameId;
             }
 
             return await _gamesAchievementsRepository.updateGamesAchievement(gamesAchievements);
